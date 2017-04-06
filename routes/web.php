@@ -34,6 +34,6 @@ Route::group([
     Route::get('upload', 'UploadController@index');
 });
 
-Route::get('auth/login' , 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('auth/login', 'Auth\LoginController@login');
-Route::get('auth/logout', 'Auth\LoginController@logout');
+
+Auth::routes();
+
