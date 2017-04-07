@@ -2,12 +2,17 @@
 // Fonts
 //@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
-
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+// icon
+@import "node_modules/font-awesome-sass/assets/stylesheets/font-awesome";
 
+// Fonts
 @import "//fonts.googleapis.com/css?family=Roboto:400,300";
 
 
 @import "./_variables";
+
+// datatable
+@import "node_modules/datatables.net-bs/css/dataTables.bootstrap";

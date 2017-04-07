@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class TagController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +16,9 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $tags = Tag::all();
+
+        return view('backend.tags.index', compact('tags'));
     }
 
     /**
@@ -24,7 +28,9 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.tags.create', [
+            'tag' => new Tag
+        ]);
     }
 
     /**
@@ -33,9 +39,11 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        Tag::create(request()->all());
+
+        return redirect('/backend/tags');
     }
 
     /**
@@ -55,9 +63,9 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Tag $tag)
     {
-        //
+        return view('backend.tags.edit', compact('tag'));
     }
 
     /**
@@ -67,9 +75,11 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Tag $tag)
     {
-        //
+        $tag->update($request->all());
+
+        return redirect('/backend/tags');
     }
 
     /**
@@ -78,8 +88,10 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Tag $tag)
     {
-        //
+        $tag->delete();
+
+        return redirect()->back();
     }
 }

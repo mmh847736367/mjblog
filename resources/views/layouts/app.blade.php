@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    @yield('css')
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
@@ -21,13 +21,32 @@
     </script>
 </head>
 <body>
-    <div id="app">
-        @include('backend.partials.navbar')
-
-        @yield('content')
+{{-- Navigation Bar --}}
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">{{ config('blog.title') }}</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-menu">
+            @include('backend.partials.navbar')
+        </div>
     </div>
+</nav>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+<div class="container">
+    @yield('content')
+</div>
+
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
+
+@yield('scripts')
+
 </body>
 </html>
