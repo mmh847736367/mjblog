@@ -44,7 +44,13 @@ body, label, .checkbox label {
   font-weight: 300;
 }
 
-
+.alert-flash {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 50px;
+  z-index: 10;
+}
 
 
 

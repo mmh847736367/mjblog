@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Http\Requests\TagForm;
 use App\Tag;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class TagController extends Controller
@@ -39,11 +39,11 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(TagForm $form)
     {
-        Tag::create(request()->all());
+        Tag::create($form->allWithoutNull());
 
-        return redirect('/backend/tags');
+        return redirect('/backend/tags')->with('success', 'The tag create success');
     }
 
     /**
@@ -75,9 +75,9 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tag $tag)
+    public function update(TagForm $form, Tag $tag)
     {
-        $tag->update($request->all());
+        $tag->update($form->all());
 
         return redirect('/backend/tags');
     }

@@ -39,6 +39,8 @@
     </div>
 </nav>
 
+@yield('flash')
+
 <div class="container">
     @yield('content')
 </div>

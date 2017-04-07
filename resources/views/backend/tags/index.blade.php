@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('flash')
+    @include('backend.partials.flash')
+@endsection
+
 @section('content')
         <div class="row page-title-row">
             <div class="col-md-6">
@@ -16,8 +20,7 @@
         <div class="row">
             <div class="col-sm-12">
 
-                @include('backend.partials.errors')
-                @include('backend.partials.success')
+
 
                 <table id="tags-table" class="table table-striped table-bordered">
                     <thead>
@@ -75,8 +78,12 @@
 @section('scripts')
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/dt-1.10.13/datatables.min.js"></script>
     <script>
+
         $(document).ready(function() {
             $('#tags-table').DataTable();
         });
+
+        $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+
     </script>
 @endsection

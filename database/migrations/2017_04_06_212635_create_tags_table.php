@@ -18,8 +18,8 @@ class CreateTagsTable extends Migration
             $table->string('tag')->unique();
             $table->string('title');
             $table->string('subtitle');
-            $table->string('page_image');
-            $table->string('meta_description');
+            $table->string('page_image')->nullable();
+            $table->string('meta_description')->nullable();
             $table->string('layout')->default('blog.layouts.index');
             $table->boolean('reverse_direction');
             $table->timestamps();

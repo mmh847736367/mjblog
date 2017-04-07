@@ -49,7 +49,6 @@
         <textarea class="form-control"
                   name="meta_description"
                   rows="3"
-                  required
         >{{ old('meta_description') ?? $tag->meta_description }}</textarea>
     </div>
 </div>
@@ -63,7 +62,6 @@
                class="form-control"
                name="page_image"
                value="{{ old('page_image') ?? $tag->page_image }}"
-               required
         >
     </div>
 </div>
@@ -77,7 +75,7 @@
                class="form-control"
                name="layout"
                value="{{ old('layout') ?? $tag->layout }}"
-               required
+               placeholder="blog.layouts.index"
         >
     </div>
 </div>
@@ -93,7 +91,6 @@
                    checked="checked"
                    @endif
                    value="0"
-                   required
             >
             Normal
         </label>
@@ -103,7 +100,6 @@
                    checked="checked"
                    @endif
                    value="1"
-                   required
             >
             Reversed
         </label>
